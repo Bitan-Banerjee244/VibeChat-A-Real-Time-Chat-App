@@ -21,7 +21,7 @@ function Signin() {
         className="w-full h-[85%] lg:h-full text-white flex justify-center items-center
             bg-linear-to-b from-[#011227] via-[#170335]  to-[#0a001a68] p-6 rounded-2xl shadow-violet-950 shadow-sm "
       >
-        <form action="" className="w-full max-h-[80%] flex flex-col  gap-7">
+        <form action="" className="w-full max-h-[80%] flex flex-col gap-7">
           <span className=" text-3xl lg:text-4xl w-full h-[15%]">
             Create an account
           </span>

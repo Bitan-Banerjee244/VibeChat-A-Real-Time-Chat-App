@@ -4,7 +4,6 @@ import {
   InputGroupInput,
 } from "../components/ui/input-group";
 import { Mail, KeyRound, Eye, EyeClosed } from "lucide-react";
-
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "../components/ui/button";
 import { useState } from "react";
@@ -18,7 +17,7 @@ function Login() {
     <>
       <div
         id="loginForm"
-        className="w-full   h-[85%] lg:h-full text-white flex justify-center items-center
+        className="w-full h-[85%] lg:h-full text-white flex justify-center items-center
             bg-linear-to-b from-[#011227] via-[#170335]  to-[#0a001a68] p-6 rounded-2xl shadow-violet-950 shadow-sm "
       >
         {/* // Form  */}
