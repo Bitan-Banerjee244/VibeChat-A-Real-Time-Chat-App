@@ -4,7 +4,7 @@ import Signin from "./pages/Signin";
 import Login from "./pages/Login";
 import Verify from "./pages/Verify";
 import ChangePassword from "./pages/ChangePassword";
-import Chat from "./pages/Chat";
+import ChatPage from "./pages/ChatPage";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         </Route>
 
         {/* Chat Route */}
-        <Route path="/chat" element={<Chat />} />
+        <Route path="/chat" element={<ChatPage />} />
       </Routes>
   );
 }

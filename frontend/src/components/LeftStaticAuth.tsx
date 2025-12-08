@@ -1,4 +1,3 @@
-// LeftStatic.jsx
 import loginBackgroundImage from "../assets/loginBackground.png";
 import { MessageCircle } from "lucide-react";
 

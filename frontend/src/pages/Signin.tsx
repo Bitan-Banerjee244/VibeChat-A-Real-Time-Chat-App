@@ -4,7 +4,6 @@ import {
   InputGroupInput,
 } from "../components/ui/input-group";
 import { CircleUser, Mail, KeyRound, Eye, EyeClosed } from "lucide-react";
-
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "../components/ui/button";
 import { useState } from "react";
@@ -17,7 +16,7 @@ function Signin() {
   return (
     <>
       <div
-        id="signup"
+        id="signin"
         className="w-full h-[85%] lg:h-full text-white flex justify-center items-center
             bg-linear-to-b from-[#011227] via-[#170335]  to-[#0a001a68] p-6 rounded-2xl shadow-violet-950 shadow-sm "
       >
@@ -33,6 +32,7 @@ function Signin() {
           >
             {/* name */}
             <div className="nameContainer w-full h-5 flex gap-2">
+
               {/* First Name */}
               <InputGroup className="w-1/2 h-[50px]">
                 <InputGroupInput placeholder="First Name" autoFocus required />
@@ -45,6 +45,7 @@ function Signin() {
                 <InputGroupInput placeholder="Last Name" />
               </InputGroup>
             </div>
+
             {/* Mail */}
             <div className="w-full h-5">
               <InputGroup className="h-[50px]">
@@ -58,6 +59,7 @@ function Signin() {
                 </InputGroupAddon>
               </InputGroup>
             </div>
+            
             {/* Password */}
             <div className="w-full h-5">
               <InputGroup className="h-[50px]">
