@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Verify from "./pages/Verify";
 import ChangePassword from "./pages/ChangePassword";
 import ChatPage from "./pages/ChatPage";
+import CreateProfile from "./pages/CreateProfile";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Route index element={<Signin />} /> {/* /auth */}
           <Route path="login" element={<Login />} /> {/* /auth/login */}
           <Route path="otp" element={<Verify />} /> {/* /auth/otp */}
-          <Route path="changepassword" element={<ChangePassword />} />{" "}
+          <Route path="changepassword" element={<ChangePassword />} />
+          <Route path="profile" element={<CreateProfile />} />
           {/* /auth/change-password */}
         </Route>
 
