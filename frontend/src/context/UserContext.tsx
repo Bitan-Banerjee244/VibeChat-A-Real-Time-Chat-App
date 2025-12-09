@@ -19,7 +19,7 @@ export const UserContext = createContext<UserContextType>({
 
 function UserContextProvider({ children }: { children: React.ReactNode }) {
   const [showPerson, setShowPerson] = useState<boolean>(true);
-  const [showProfile, setShowProfile] = useState<boolean>(true);
+  const [showProfile, setShowProfile] = useState<boolean>(false);
 
   const value: UserContextType = {
     showPerson,

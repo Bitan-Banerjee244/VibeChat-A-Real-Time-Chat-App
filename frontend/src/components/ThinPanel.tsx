@@ -5,6 +5,8 @@ function ThinPanel() {
   return (
     <>
       <div className="w-full h-full bg-black border-r-2 border-[#8080805f] border-solid flex justify-between py-4 flex-col">
+
+        {/* To Part : Chats + Loop */}
         <div
           id="mainIcons"
           className="w-full h-[15%] flex justify-around items-center flex-col text-white"
@@ -15,10 +17,11 @@ function ThinPanel() {
           <div className="cursor-pointer w-10 h-10  rounded-[50%] flex justify-center items-center">
             <Repeat2 />
           </div>
-       
         </div>
+
+        {/* Bottom Part LogOut + Profile */}
         <div className="w-full h-[15%] flex justify-around items-center text-red-500 flex-col">
-             <img
+          <img
             src={profileImg}
             alt=""
             className="w-[35px] h-[35px] overflow-hidden object-cover rounded-[50%] cursor-pointer"

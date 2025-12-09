@@ -43,6 +43,7 @@ function PersonBar() {
 
   return (
     <div className="h-full flex flex-col bg-linear-to-b from-[#2b012b] via-[#0f012f] to-black border-r-2 border-[#80808059] border-solid">
+
       {/* Logo */}
       <div
         className="w-full h-[10%] flex items-center ml-4 cursor-pointer"
@@ -99,6 +100,7 @@ function PersonBar() {
           ))}
         </div>
       </ScrollArea>
+      
     </div>
   );
 }

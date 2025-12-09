@@ -20,6 +20,7 @@ const ProfileBar: React.FC<ProfileBarProps> = ({ onClose }) => {
 
   return (
     <div className="h-full w-full flex flex-col relative text-white bg-[#01011b] border-l border-[#8080804e]">
+
       {/* Close Button */}
       <div className="absolute top-4 left-4 z-50">
         <button
@@ -51,6 +52,7 @@ const ProfileBar: React.FC<ProfileBarProps> = ({ onClose }) => {
         </div>
       </div>
 
+
       {/* Media Section */}
       <h3 className="text-lg font-semibold m-5">Shared Media</h3>
       <div className="h-1/2 overflow-y-auto px-4 pb-4 scrollbar-hide">
@@ -65,6 +67,8 @@ const ProfileBar: React.FC<ProfileBarProps> = ({ onClose }) => {
           ))}
         </div>
       </div>
+
+
     </div>
   );
 };
