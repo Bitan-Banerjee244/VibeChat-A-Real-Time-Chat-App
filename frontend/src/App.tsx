@@ -6,24 +6,25 @@ import Verify from "./pages/Verify";
 import ChangePassword from "./pages/ChangePassword";
 import ChatPage from "./pages/ChatPage";
 import CreateProfile from "./pages/CreateProfile";
+import EmailVerify from "./pages/EmailVerify";
 
 function App() {
   return (
-  
-      <Routes>
-        {/* Auth Routes */}
-        <Route path="/auth" element={<AuthLayout />}>
-          <Route index element={<Signin />} /> {/* /auth */}
-          <Route path="login" element={<Login />} /> {/* /auth/login */}
-          <Route path="otp" element={<Verify />} /> {/* /auth/otp */}
-          <Route path="changepassword" element={<ChangePassword />} />
-          <Route path="profile" element={<CreateProfile />} />
-          {/* /auth/change-password */}
-        </Route>
+    <Routes>
+      {/* Auth Routes */}
+      <Route path="/auth" element={<AuthLayout />}>
+        <Route index element={<Signin />} /> {/* /auth */}
+        <Route path="login" element={<Login />} /> {/* /auth/login */}
+        <Route path="otp" element={<Verify />} /> {/* /auth/otp */}
+        <Route path="changepassword" element={<ChangePassword />} />
+        <Route path="profile" element={<CreateProfile />} />
+        <Route path="email" element={<EmailVerify />} />
+        {/* /auth/change-password */}
+      </Route>
 
-        {/* Chat Route */}
-        <Route path="/chat" element={<ChatPage />} />
-      </Routes>
+      {/* Chat Route */}
+      <Route path="/chat" element={<ChatPage />} />
+    </Routes>
   );
 }
 
