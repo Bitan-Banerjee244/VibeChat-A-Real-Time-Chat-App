@@ -4,20 +4,25 @@ import profileImg from "../assets/image.png";
 function ThinPanel() {
   return (
     <>
-      <div className="w-full h-full bg-gray-800 flex justify-between py-4 flex-col">
+      <div className="w-full h-full bg-black border-r-2 border-[#8080805f] border-solid flex justify-between py-4 flex-col">
         <div
           id="mainIcons"
-          className="w-full h-[25%] flex justify-around items-center flex-col text-white"
+          className="w-full h-[15%] flex justify-around items-center flex-col text-white"
         >
-          <MessageCircle className="cursor-pointer"/>
-          <Repeat2 className="cursor-pointer"/>
-          <img
+          <div className="cursor-pointer w-10 h-10  bg-violet-700 rounded-[50%] flex justify-center items-center">
+            <MessageCircle />
+          </div>
+          <div className="cursor-pointer w-10 h-10  rounded-[50%] flex justify-center items-center">
+            <Repeat2 />
+          </div>
+       
+        </div>
+        <div className="w-full h-[15%] flex justify-around items-center text-red-500 flex-col">
+             <img
             src={profileImg}
             alt=""
-            className="w-[30px] h-[30px] overflow-hidden object-cover rounded-[50%] cursor-pointer"
+            className="w-[35px] h-[35px] overflow-hidden object-cover rounded-[50%] cursor-pointer"
           />
-        </div>
-        <div className="w-full h-[10%] flex justify-center items-center text-red-500">
           <LogOut />
         </div>
       </div>

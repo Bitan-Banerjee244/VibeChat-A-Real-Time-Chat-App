@@ -7,56 +7,43 @@ interface ProfileBarProps {
 
 const ProfileBar: React.FC<ProfileBarProps> = ({ onClose }) => {
   const mediaItems = [
-    "https://source.unsplash.com/random/100x100/?nature",
-    "https://source.unsplash.com/random/100x100/?city",
-    "https://source.unsplash.com/random/100x100/?tech",
-    "https://source.unsplash.com/random/100x100/?animals",
-    "https://source.unsplash.com/random/100x100/?people",
-    "https://source.unsplash.com/random/100x100/?cars",
-    "https://source.unsplash.com/random/100x100/?food",
-    "https://source.unsplash.com/random/100x100/?mountain",
+    "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
   ];
 
   return (
-    <div className="h-full w-full flex flex-col text-white relative bg-gradient-to-b from-black via-blue-900 to-black">
-
+    <div className="h-full w-full flex flex-col relative text-white bg-[#01011b] border-l border-[#8080804e]">
       {/* Close Button */}
-      <div className="absolute top-4 right-4 z-50">
+      <div className="absolute top-4 left-4 z-50">
         <button
           onClick={onClose}
-          className="p-2 rounded-full hover:bg-gray-700 transition"
+          className="p-2 rounded-full hover:bg-violet-700 transition cursor-pointer"
         >
-          <X className="w-6 h-6" />
+          <X className="w-6 h-6"/>
         </button>
       </div>
 
-      {/* Profile Header */}
-      <div className="relative flex flex-col items-center py-12">
-        {/* Subtle Media Blur Behind DP */}
-        <div className="absolute -top-4 w-40 h-40 rounded-full overflow-hidden z-0">
-          {mediaItems.slice(0, 6).map((src, idx) => (
-            <img
-              key={idx}
-              src={src}
-              alt={`media-${idx}`}
-              className="w-full h-full object-cover filter blur-lg scale-110"
-            />
-          ))}
-          <div className="absolute inset-0 bg-black/50 rounded-full"></div>
-        </div>
-
+      {/* // Profile Details  */}
+      <div className="h-1/2 flex flex-col items-center justify-center px-4 border-b-2 border-solid border-gray-800">
         {/* DP */}
-        <div className="relative z-10">
+        <div className="relative z-10 -mt-8">
           <img
-            src="https://source.unsplash.com/random/150x150/?face"
+            src="https://randomuser.me/api/portraits/women/68.jpg"
             alt="profile"
             className="w-32 h-32 rounded-full border-4 border-blue-600 shadow-lg"
           />
         </div>
 
-        {/* Name, Status, Bio */}
-        <div className="mt-4 text-center z-10 px-4">
-          <h2 className="text-2xl font-bold">Bitan Banerjee</h2>
+        {/* Name & Status */}
+        <div className="mt-4 text-center z-10">
+          <h2 className="text-2xl font-bold">Sahid Ghosh</h2>
           <p className="text-green-400 text-sm mt-1">● Online</p>
           <p className="text-gray-300 text-sm mt-2">
             Passionate about coding, gaming, and building awesome apps!
@@ -64,9 +51,9 @@ const ProfileBar: React.FC<ProfileBarProps> = ({ onClose }) => {
         </div>
       </div>
 
-      {/* Media Section (Shared Media) */}
-      <div className="flex-1 overflow-y-auto mt-6 px-4 pb-4 scrollbar-hide">
-        <h3 className="text-lg font-semibold mb-3">Shared Media</h3>
+      {/* Media Section */}
+      <h3 className="text-lg font-semibold m-5">Shared Media</h3>
+      <div className="h-1/2 overflow-y-auto px-4 pb-4 scrollbar-hide">
         <div className="grid grid-cols-3 gap-3">
           {mediaItems.map((src, idx) => (
             <img
