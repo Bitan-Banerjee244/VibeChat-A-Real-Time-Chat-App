@@ -14,7 +14,7 @@ function PersonBar() {
   const { setShowPerson } = useContext(UserContext);
 
   return (
-    <div className="h-full flex flex-col bg-gradient-to-b from-blue-950 to-black">
+    <div className="h-full flex flex-col bg-linear-to-b from-blue-950 to-black">
       {/* Logo */}
       <div
         className="w-full h-[10%] flex items-center justify-center cursor-pointer"
