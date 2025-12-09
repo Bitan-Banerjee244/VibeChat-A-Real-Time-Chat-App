@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-
+* {
+  user-select: none;
+}
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -124,6 +126,5 @@
   display: none;
 }
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
