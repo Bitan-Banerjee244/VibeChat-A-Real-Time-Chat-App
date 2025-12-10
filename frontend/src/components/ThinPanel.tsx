@@ -1,4 +1,4 @@
-import { MessageCircle, Repeat2, LogOut } from "lucide-react";
+import { MessageCircle, Repeat2, LogOut, Bell } from "lucide-react";
 import profileImg from "../assets/image.png";
 
 function ThinPanel() {
@@ -15,7 +15,7 @@ function ThinPanel() {
             <MessageCircle />
           </div>
           <div className="cursor-pointer w-10 h-10  rounded-[50%] flex justify-center items-center">
-            <Repeat2 />
+            <Bell/>
           </div>
         </div>
 

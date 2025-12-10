@@ -20,7 +20,7 @@ const WelcomePage: React.FC<WelcomePageProps> = ({ setStep }) => {
         animate={{ scale: 1 }}
         transition={{ duration: 0.8, type: "spring", stiffness: 120 }}
       >
-        <MessageCircle className="w-12 h-12" />
+        <MessageCircle className="w-25 h-25" />
       </motion.div>
 
       {/* Title */}

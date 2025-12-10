@@ -7,6 +7,7 @@ import {
   ChevronLeft,
   ChevronRight,
   XIcon,
+  CheckCheck,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -157,8 +158,8 @@ function ChatPageMain() {
 
               {msg.text && <p>{msg.text}</p>}
 
-              <p className="text-xs text-gray-300 text-right mt-1">
-                {msg.time}
+              <p className="text-xs text-gray-300 text-right mt-1 flex justify-end items-center gap-2">
+                {msg.time}  <CheckCheck className="w-5 h-5"/>
               </p>
 
             </div>

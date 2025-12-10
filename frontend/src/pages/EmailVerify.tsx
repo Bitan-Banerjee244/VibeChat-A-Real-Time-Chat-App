@@ -27,7 +27,7 @@ const EmailVerify: React.FC = () => {
         </h1>
 
         <div>
-          <label className="flex items-center gap-2 mb-1 text-gray-300">
+          <label className="flex items-center gap-2  text-gray-300 mb-2">
             Email
           </label>
           <InputGroup>

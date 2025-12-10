@@ -27,7 +27,7 @@ function LeftStatic() {
           className="absolute left-20 bottom-20 text-3xl text-[#ffffff73] leading-10"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{
+          transition={{ 
             type: "spring",
             stiffness: 120,
             damping: 12,

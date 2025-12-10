@@ -14,6 +14,7 @@ const statuses = [
     name: "Alice",
     avatar: "https://randomuser.me/api/portraits/women/1.jpg",
   },
+  
   {
     id: 2,
     name: "Bob",

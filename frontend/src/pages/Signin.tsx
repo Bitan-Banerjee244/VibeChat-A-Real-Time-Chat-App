@@ -88,7 +88,7 @@ function Signin() {
             {/* Create Account Button */}
             <div className="w-full h-[50px]">
               <Button
-                className="w-full h-full bg-purple-500 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors cursor-pointer"
+                className="w-full h-full bg-purple-500 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors cursor-pointer text-xl"
                 size="icon-lg"
                 type="submit"
               >
@@ -110,7 +110,7 @@ function Signin() {
 
             {/* Login with Google */}
             <div className="buttonContainer w-full h-[50px]">
-              <Button className="w-full h-full flex items-center justify-center gap-2 bg-white hover:bg-white/90 text-black font-semibold rounded-lg transition-colors cursor-pointer">
+              <Button className="w-full h-full flex items-center justify-center gap-2 bg-white hover:bg-white/90 text-black font-semibold rounded-lg transition-colors cursor-pointer text-xl">
                 <FcGoogle />
                 Login with Google
               </Button>
