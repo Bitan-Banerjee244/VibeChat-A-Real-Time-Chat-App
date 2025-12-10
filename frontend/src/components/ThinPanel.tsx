@@ -1,21 +1,45 @@
-import { MessageCircle, Repeat2, LogOut, Bell } from "lucide-react";
+import { MessageCircle, LogOut, Bell } from "lucide-react";
 import profileImg from "../assets/image.png";
+import { MdGroup } from "react-icons/md";
 
-function ThinPanel() {
+type FriendRequestProps = {
+  setShowFriendRequest: React.Dispatch<React.SetStateAction<boolean>>;
+  setSendFriendRequest: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+function ThinPanel({
+  setShowFriendRequest,
+  setSendFriendRequest,
+}: FriendRequestProps) {
   return (
     <>
       <div className="w-full h-full bg-black border-r-2 border-[#8080805f] border-solid flex justify-between py-4 flex-col">
-
         {/* To Part : Chats + Loop */}
         <div
           id="mainIcons"
-          className="w-full h-[15%] flex justify-around items-center flex-col text-white"
+          className="w-full h-[25%] flex justify-around items-center flex-col text-white"
         >
           <div className="cursor-pointer w-10 h-10  bg-violet-700 rounded-[50%] flex justify-center items-center">
             <MessageCircle />
           </div>
-          <div className="cursor-pointer w-10 h-10  rounded-[50%] flex justify-center items-center">
-            <Bell/>
+
+          <div
+            className="cursor-pointer w-10 h-10  rounded-[50%] flex justify-center items-center"
+            onClick={() => {
+              setShowFriendRequest((prev) => !prev);
+              setSendFriendRequest(false);
+            }}
+          >
+            <Bell />
+          </div>
+
+          <div
+            className="cursor-pointer w-10 h-10  rounded-[50%] flex justify-center items-center"
+            onClick={() => {setSendFriendRequest((prev) => !prev)
+               setShowFriendRequest(false);
+            }}
+          >
+            <MdGroup className="w-6 h-6" />
           </div>
         </div>
 
