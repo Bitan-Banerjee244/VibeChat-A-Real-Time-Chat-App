@@ -142,7 +142,11 @@ function ChatPage() {
       </div>
 
       {/* Showing All Person by userid */}
-      <div className={`w-[350px] md:w-[400px] p-4 max-h-[500px] overflow-y-scroll scrollbar-hide rounded-xl bg-linear-to-br from-blue-900 via-black to-violet-900 border border-white shadow-lg text-white absolute z-50 top-15 left-15 ${sendFriendRequest?"block":"hidden"}`}>
+      <div
+        className={`w-[350px] md:w-[400px] p-4 max-h-[500px] overflow-y-scroll scrollbar-hide rounded-xl bg-linear-to-br from-blue-900 via-black to-violet-900 border border-white shadow-lg text-white absolute z-50 top-15 left-15 ${
+          sendFriendRequest ? "block" : "hidden"
+        }`}
+      >
         <h2 className="text-lg font-semibold mb-4">All Users</h2>
 
         <div className="flex flex-col gap-3">
@@ -175,14 +179,16 @@ function ChatPage() {
 
       {/* Far-left thin panel */}
       <div className="hidden md:flex md:w-[4%] z-20">
-        <ThinPanel setShowFriendRequest={setShowFriendRequest} setSendFriendRequest={setSendFriendRequest} />
+        <ThinPanel
+          setShowFriendRequest={setShowFriendRequest}
+          setSendFriendRequest={setSendFriendRequest}
+        />
       </div>
 
       {/* Left Panel */}
       <div
         className={`fixed md:static top-0 left-0 md:left-[4%] h-full bg-blue-400 z-30 transition-all duration-300 overflow-hidden
-          ${showPerson ? "w-full md:w-[25%]" : "w-0"}
-        `}
+          ${showPerson ? "w-full md:w-[25%]" : "w-0"}`}
       >
         <PersonBar />
       </div>

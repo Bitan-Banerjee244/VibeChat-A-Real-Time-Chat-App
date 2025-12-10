@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { MessageCircle, SearchIcon } from "lucide-react";
+import { MessageCircle, SearchIcon, LogOut, Bell } from "lucide-react";
+import profileImage from "../assets/image.png";
 import {
   InputGroup,
   InputGroupAddon,
@@ -7,6 +8,7 @@ import {
 } from "@/components/ui/input-group";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { UserContext } from "@/context/UserContext";
+import { MdGroup } from "react-icons/md";
 
 const statuses = [
   {
@@ -14,7 +16,7 @@ const statuses = [
     name: "Alice",
     avatar: "https://randomuser.me/api/portraits/women/1.jpg",
   },
-  
+
   {
     id: 2,
     name: "Bob",
@@ -73,7 +75,7 @@ function PersonBar() {
   return (
     <div className="h-full flex flex-col bg-linear-to-b from-[#2b012b] via-[#0f012f] to-black border-r border-[#80808059]">
       {/* Logo */}
-      <div className="w-full h-[10%] flex items-center px-4 cursor-pointer">
+      <div className="w-full h-[10%] flex items-center justify-between px-4 cursor-pointer">
         <span
           className="text-2xl flex items-center text-white font-bold"
           onClick={() => setShowPerson(false)}
@@ -81,6 +83,25 @@ function PersonBar() {
           <MessageCircle className="mr-2 text-violet-400 w-8 h-8" />
           Vibe<i className="text-violet-500">Chat</i>
         </span>
+
+        <div className="w-[50%] h-full text-white flex items-center justify-around md:hidden">
+          <img
+            src={profileImage}
+            alt=""
+            className="w-[35px] h-[35px] overflow-hidden object-cover rounded-[50%] cursor-pointer"
+          />
+          <span>
+            <Bell />
+          </span>
+          <span>
+            <MdGroup className="w-6 h-6" />{" "}
+          </span>
+
+          <span className="text-red-700">
+            <LogOut />
+          </span>
+        </div>
+
       </div>
 
       {/* Loops / Status - Horizontal Scroll */}
