@@ -1,5 +1,12 @@
 import { useContext } from "react";
-import { MessageCircle, SearchIcon, LogOut, Bell } from "lucide-react";
+import {
+  MessageCircle,
+  SearchIcon,
+  LogOut,
+  Bell,
+  BadgePlus,
+  Plus,
+} from "lucide-react";
 import profileImage from "../assets/image.png";
 import {
   InputGroup,
@@ -13,8 +20,8 @@ import { MdGroup } from "react-icons/md";
 type FriendRequestProps = {
   setShowFriendRequest: React.Dispatch<React.SetStateAction<boolean>>;
   setSendFriendRequest: React.Dispatch<React.SetStateAction<boolean>>;
-    showFriendRequest:boolean;
-  sendFriendRequest:boolean;
+  showFriendRequest: boolean;
+  sendFriendRequest: boolean;
 };
 
 const statuses = [
@@ -80,7 +87,7 @@ function PersonBar({
   setShowFriendRequest,
   setSendFriendRequest,
   showFriendRequest,
-  sendFriendRequest
+  sendFriendRequest,
 }: FriendRequestProps) {
   const { setShowPerson } = useContext(UserContext);
 
@@ -102,20 +109,25 @@ function PersonBar({
             alt=""
             className="w-[35px] h-[35px] overflow-hidden object-cover rounded-[50%] cursor-pointer"
           />
-          <span onClick={()=>{
-            setShowFriendRequest(prev=>!prev);
-            setSendFriendRequest(false);
-          }}
-          className={`${showFriendRequest?"bg-violet-700" : ""} w-9 h-9 rounded-[50%] flex justify-center items-center`}
+          <span
+            onClick={() => {
+              setShowFriendRequest((prev) => !prev);
+              setSendFriendRequest(false);
+            }}
+            className={`${
+              showFriendRequest ? "bg-violet-700" : ""
+            } w-9 h-9 rounded-[50%] flex justify-center items-center`}
           >
             <Bell />
           </span>
           <span
-          onClick={()=>{
-            setSendFriendRequest(prev=>!prev);
-            setShowFriendRequest(false);
-          }}
-           className={`${sendFriendRequest?"bg-violet-700" : ""} w-9 h-9 rounded-[50%] flex justify-center items-center`}
+            onClick={() => {
+              setSendFriendRequest((prev) => !prev);
+              setShowFriendRequest(false);
+            }}
+            className={`${
+              sendFriendRequest ? "bg-violet-700" : ""
+            } w-9 h-9 rounded-[50%] flex justify-center items-center`}
           >
             <MdGroup className="w-6 h-6" />{" "}
           </span>
@@ -130,6 +142,22 @@ function PersonBar({
       <div className="px-3 py-2 mb-3">
         <h2 className="text-white font-semibold mb-2 ml-2">Loops</h2>
         <div className="flex gap-4 overflow-x-auto scrollbar-hide whitespace-nowrap">
+
+          {/* // Own Profile to add loop  */}
+          <div className="flex flex-col items-center cursor-pointer min-w-max relative ">
+            <span className="text-blue-900 absolute bottom-5 right-2 bg-green-500 rounded-lg">
+              <Plus />
+            </span>
+            <div className="w-17 h-17 rounded-full p-1 bg-linear-to-tr from-green-400 to-blue-500">
+              <img
+                src={profileImage}
+                alt="myloop"
+                className="w-full h-full rounded-full border-2 border-white object-cover"
+              />
+            </div>
+            <span className="text-xs text-white mt-1">Add your loop</span>
+          </div>
+
           {statuses.map((status) => (
             <div
               key={status.id}
