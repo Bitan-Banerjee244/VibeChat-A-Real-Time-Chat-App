@@ -27,12 +27,6 @@ const requests = [
     img: "https://randomuser.me/api/portraits/men/6.jpg",
   },
 
-  {
-    id: 3,
-    name: "Rohan Das",
-    mutual: "1 mutual friend",
-    img: "https://randomuser.me/api/portraits/men/6.jpg",
-  },
 ];
 
 // Dummy User for friend Requests
@@ -74,7 +68,7 @@ function ChatPage() {
       {/* Show Friend Request Button */}
       <div
         className={`
-        w-[350px] md:w-[400px]
+        w-[300px] md:w-[400px]
         p-4
         max-h-[500px]
         overflow-y-scroll scrollbar-hide
@@ -83,7 +77,7 @@ function ChatPage() {
         border border-white
         shadow-lg
         text-white
-        absolute z-999 top-15 left-15 
+        absolute z-999 top-22 md:top-15 left-10 md:left-15 
           ${showFriendRequest ? "block" : "hidden"}
       `}
       >
@@ -143,7 +137,7 @@ function ChatPage() {
 
       {/* Showing All Person by userid */}
       <div
-        className={`w-[350px] md:w-[400px] p-4 max-h-[500px] overflow-y-scroll scrollbar-hide rounded-xl bg-linear-to-br from-blue-900 via-black to-violet-900 border border-white shadow-lg text-white absolute z-50 top-15 left-15 ${
+        className={`w-[300px] md:w-[400px] p-4 max-h-[500px] overflow-y-scroll scrollbar-hide rounded-xl bg-linear-to-br from-blue-900 via-black to-violet-900 border border-white shadow-lg text-white absolute z-50 top-22 md:top-15 left-10 md:left-15 ${
           sendFriendRequest ? "block" : "hidden"
         }`}
       >
@@ -182,6 +176,8 @@ function ChatPage() {
         <ThinPanel
           setShowFriendRequest={setShowFriendRequest}
           setSendFriendRequest={setSendFriendRequest}
+          showFriendRequest={showFriendRequest}
+          sendFriendRequest={sendFriendRequest}
         />
       </div>
 
@@ -190,7 +186,12 @@ function ChatPage() {
         className={`fixed md:static top-0 left-0 md:left-[4%] h-full bg-blue-400 z-30 transition-all duration-300 overflow-hidden
           ${showPerson ? "w-full md:w-[25%]" : "w-0"}`}
       >
-        <PersonBar />
+        <PersonBar
+         setShowFriendRequest={setShowFriendRequest}
+          setSendFriendRequest={setSendFriendRequest}
+          showFriendRequest={showFriendRequest}
+          sendFriendRequest={sendFriendRequest}
+        />
       </div>
 
       {/* Middle Chat Area */}

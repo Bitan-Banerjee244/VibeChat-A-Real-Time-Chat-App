@@ -5,11 +5,15 @@ import { MdGroup } from "react-icons/md";
 type FriendRequestProps = {
   setShowFriendRequest: React.Dispatch<React.SetStateAction<boolean>>;
   setSendFriendRequest: React.Dispatch<React.SetStateAction<boolean>>;
+  showFriendRequest:boolean;
+  sendFriendRequest:boolean;
 };
 
 function ThinPanel({
   setShowFriendRequest,
   setSendFriendRequest,
+  showFriendRequest,
+  sendFriendRequest
 }: FriendRequestProps) {
   return (
     <>
@@ -24,7 +28,7 @@ function ThinPanel({
           </div>
 
           <div
-            className="cursor-pointer w-10 h-10  rounded-[50%] flex justify-center items-center"
+            className={`cursor-pointer w-10 h-10  rounded-[50%] flex justify-center items-center ${showFriendRequest ? "bg-violet-700" : ""}`}
             onClick={() => {
               setShowFriendRequest((prev) => !prev);
               setSendFriendRequest(false);
@@ -34,7 +38,7 @@ function ThinPanel({
           </div>
 
           <div
-            className="cursor-pointer w-10 h-10  rounded-[50%] flex justify-center items-center"
+            className={`cursor-pointer w-10 h-10  rounded-[50%] flex justify-center items-center ${sendFriendRequest ? "bg-violet-700":""}`}
             onClick={() => {setSendFriendRequest((prev) => !prev)
                setShowFriendRequest(false);
             }}

@@ -10,6 +10,13 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { UserContext } from "@/context/UserContext";
 import { MdGroup } from "react-icons/md";
 
+type FriendRequestProps = {
+  setShowFriendRequest: React.Dispatch<React.SetStateAction<boolean>>;
+  setSendFriendRequest: React.Dispatch<React.SetStateAction<boolean>>;
+    showFriendRequest:boolean;
+  sendFriendRequest:boolean;
+};
+
 const statuses = [
   {
     id: 1,
@@ -69,7 +76,12 @@ const persons = [
   },
 ];
 
-function PersonBar() {
+function PersonBar({
+  setShowFriendRequest,
+  setSendFriendRequest,
+  showFriendRequest,
+  sendFriendRequest
+}: FriendRequestProps) {
   const { setShowPerson } = useContext(UserContext);
 
   return (
@@ -90,10 +102,21 @@ function PersonBar() {
             alt=""
             className="w-[35px] h-[35px] overflow-hidden object-cover rounded-[50%] cursor-pointer"
           />
-          <span>
+          <span onClick={()=>{
+            setShowFriendRequest(prev=>!prev);
+            setSendFriendRequest(false);
+          }}
+          className={`${showFriendRequest?"bg-violet-700" : ""} w-9 h-9 rounded-[50%] flex justify-center items-center`}
+          >
             <Bell />
           </span>
-          <span>
+          <span
+          onClick={()=>{
+            setSendFriendRequest(prev=>!prev);
+            setShowFriendRequest(false);
+          }}
+           className={`${sendFriendRequest?"bg-violet-700" : ""} w-9 h-9 rounded-[50%] flex justify-center items-center`}
+          >
             <MdGroup className="w-6 h-6" />{" "}
           </span>
 
@@ -101,7 +124,6 @@ function PersonBar() {
             <LogOut />
           </span>
         </div>
-
       </div>
 
       {/* Loops / Status - Horizontal Scroll */}

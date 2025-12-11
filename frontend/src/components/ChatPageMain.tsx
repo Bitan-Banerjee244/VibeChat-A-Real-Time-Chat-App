@@ -87,6 +87,7 @@ function ChatPageMain() {
 
   return (
     <div className="h-screen w-full bg-linear-to-b from-[#020617] via-[#25062c] to-[#020230] text-white flex flex-col">
+      
       {/* ---------------- TOP NAVBAR ---------------- */}
       <div className="w-full p-4 flex items-center justify-between bg-black/20 backdrop-blur-md border-b border-gray-700">
 
