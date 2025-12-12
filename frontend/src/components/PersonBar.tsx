@@ -4,7 +4,6 @@ import {
   SearchIcon,
   LogOut,
   Bell,
-  BadgePlus,
   Plus,
 } from "lucide-react";
 import profileImage from "../assets/image.png";
@@ -89,10 +88,11 @@ function PersonBar({
   showFriendRequest,
   sendFriendRequest,
 }: FriendRequestProps) {
-  const { setShowPerson } = useContext(UserContext);
+  const { setShowPerson ,setShowStory} = useContext(UserContext);
 
   return (
     <div className="h-full flex flex-col bg-linear-to-b from-[#2b012b] via-[#0f012f] to-black border-r border-[#80808059]">
+      
       {/* Logo */}
       <div className="w-full h-[10%] flex items-center justify-between px-4 cursor-pointer">
         <span
@@ -162,6 +162,7 @@ function PersonBar({
             <div
               key={status.id}
               className="flex flex-col items-center cursor-pointer min-w-max"
+              onClick={()=>setShowStory(true)}
             >
               <div className="w-17 h-17 rounded-full p-1 bg-linear-to-tr from-green-400 to-blue-500">
                 <img

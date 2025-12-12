@@ -6,18 +6,21 @@ import ChatPageMain from "@/components/ChatPageMain";
 import ProfileBar from "@/components/ProfileBar";
 import FriendRequests from "@/components/FriendRequests";
 import SendFriendRequest from "@/components/SendFriendRequest";
+import LoopPage from "./LoopPage";
 
 
 function ChatPage() {
   const { showPerson, showProfile, setShowProfile } = useContext(UserContext);
   let [showFriendRequest, setShowFriendRequest] = useState<boolean>(false);
   let [sendFriendRequest, setSendFriendRequest] = useState<boolean>(false);
+  
 
   return (
     <div
       className="h-screen w-screen flex  relative overflow-hidden "
       id="personbar"
     >
+      <LoopPage/>
       {/* Show Friend Request Bar */}
       <FriendRequests showFriendRequest={showFriendRequest} />
 
