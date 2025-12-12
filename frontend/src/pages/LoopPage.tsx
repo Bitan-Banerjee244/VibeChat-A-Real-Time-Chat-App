@@ -33,14 +33,20 @@ function LoopPage() {
     { name: "Priya", img: "https://randomuser.me/api/portraits/women/5.jpg" },
   ];
 
-  // -------- AUTO SWAP STORY EVERY 20s --------
+  // Story Swap Timer
   useEffect(() => {
+    // Make sure user starts watching stories from first
+    if (!showStory) {
+      setCurrentStory(0);
+      return;
+    }
+
     const timer = setInterval(() => {
       setCurrentStory((prev) => (prev === stories.length - 1 ? 0 : prev + 1));
-    }, 20000);
+    }, 5000);
 
     return () => clearInterval(timer);
-  }, [stories.length]);
+  }, [showStory, stories.length]);
 
   return (
     <>
@@ -51,8 +57,7 @@ function LoopPage() {
             showStory ? "" : "hidden"
           }`}
       >
-        
-        {/* ------------ STORY PROGRESS BAR ------------ */}
+        {/* Story Progress Bar */}
         <div className="flex gap-1 mb-3">
           {stories.map((_, idx) => (
             <div
@@ -64,7 +69,7 @@ function LoopPage() {
           ))}
         </div>
 
-        {/* ------------ TOP-LEFT STORY OWNER ------------ */}
+        {/* User DP + name */}
         <div className="flex items-center gap-3 mb-2">
           <div
             className="w-8 h-8 hover:bg-violet-700 flex justify-center items-center cursor-pointer rounded-sm"
@@ -83,7 +88,7 @@ function LoopPage() {
           </span>
         </div>
 
-        {/* ------------ STORY IMAGE ------------ */}
+        {/* Story Main Section */}
         <div className="w-full h-[70%] rounded-lg overflow-hidden relative">
           <img
             src={stories[currentStory].img}
@@ -92,7 +97,7 @@ function LoopPage() {
           />
         </div>
 
-        {/* ------------- LIKE + VIEW BUTTONS ------------- */}
+        {/* LIKE + VIEW BUTTONS  */}
         <div className="w-full h-[15%] mt-3 flex items-center justify-between px-5">
           {/* Like */}
           <button className="flex items-center gap-2 text-white cursor-pointer">
@@ -114,7 +119,7 @@ function LoopPage() {
           </button>
         </div>
 
-        {/* ---------- VIEWERS BAR (BOTTOM SHEET) ---------- */}
+        {/* All Viewers */}
         <div
           className={`absolute bottom-0 left-0 w-full 
           bg-black/80 backdrop-blur-xl border-t border-white/20 
@@ -122,14 +127,18 @@ function LoopPage() {
           ${showViewers ? "translate-y-0" : "translate-y-[150%]"}
           h-60`}
         >
+
+
           <div className="flex justify-between items-center mb-3">
             <h2 className="text-white text-lg font-semibold">Viewers</h2>
             <button onClick={() => setShowViewers(false)}>
               <X size={22} className="text-white" />
             </button>
           </div>
-
+          
+          {/* Persons Who viewed the stories */}
           <div className="max-h-[180px] overflow-y-auto space-y-3 pr-1 scrollbar-hide">
+
             {viewers.map((viewer, idx) => (
               <div
                 key={idx}
@@ -143,7 +152,9 @@ function LoopPage() {
                 <span className="text-white text-sm">{viewer.name}</span>
               </div>
             ))}
+
           </div>
+
         </div>
       </div>
     </>
