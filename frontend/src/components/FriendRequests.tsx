@@ -40,8 +40,8 @@ function FriendRequests({ showFriendRequest }:FriendRequests) {
         border border-white
         shadow-lg
         text-white
-        absolute z-999 top-22 md:top-15 left-10 md:left-15 
-          ${showFriendRequest ? "block" : "hidden"}
+        absolute z-999 top-30 md:top-15 left-10 md:left-15 
+        ${showFriendRequest ? "block" : "hidden"}
       `}
       >
         <h2 className="text-lg font-semibold mb-4">Friend Requests</h2>

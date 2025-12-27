@@ -1,4 +1,5 @@
-import { UserPlus } from "lucide-react";
+import { SearchIcon, UserPlus } from "lucide-react";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
 
 // Dummy Send Friend Request Data
 const dummyUsers = [
@@ -37,13 +38,26 @@ function SendFriendRequest({ sendFriendRequest }: SendFriendRequest) {
   return (
     <>
       <div
-        className={`w-[300px] md:w-[400px] p-4 max-h-[500px] overflow-y-scroll scrollbar-hide rounded-xl bg-linear-to-br from-blue-900 via-black to-violet-900 border border-white shadow-lg text-white absolute z-50 top-22 md:top-15 left-10 md:left-15 ${
+        className={`w-[300px] md:w-[400px] p-4 h-[450px]  rounded-xl bg-linear-to-br from-blue-900 via-black to-violet-900 border border-white shadow-lg text-white absolute z-50 top-22 md:top-17 left-10 md:left-15 ${
           sendFriendRequest ? "block" : "hidden"
         }`}
       >
-        <h2 className="text-lg font-semibold mb-4">All Users</h2>
+        <div className="w-full h-[25%]">
+          <h2 className="text-lg font-semibold mb-4 ml-3">All Users</h2>
+          <div className="px-2 py w-full mb-7">
+            <InputGroup>
+              <InputGroupInput
+                placeholder="Search a user...."
+                className="text-white"
+              />
+              <InputGroupAddon>
+                <SearchIcon />
+              </InputGroupAddon>
+            </InputGroup>
+          </div>
+        </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 w-full h-[70%] overflow-y-scroll scrollbar-hide">
           {dummyUsers.map((user) => (
             <div
               key={user.id}
@@ -64,7 +78,7 @@ function SendFriendRequest({ sendFriendRequest }: SendFriendRequest) {
 
               {/* Right: Friend request icon */}
               <div className="p-2 rounded-full bg-green-500/20 border border-green-400/40">
-                <UserPlus size={18} className="text-green-400" />
+                <UserPlus size={18} className="text-green-400 cursor-pointer" />
               </div>
             </div>
           ))}

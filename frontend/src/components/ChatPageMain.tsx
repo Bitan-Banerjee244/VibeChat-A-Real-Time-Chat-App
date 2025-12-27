@@ -58,7 +58,7 @@ function ChatPageMain() {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [frontendImageUrl, setFrontendImageUrl] = useState<string | null>(null);
 
-  // Scroll to bottom when messages update 
+  // Scroll to bottom when messages update
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -87,10 +87,8 @@ function ChatPageMain() {
 
   return (
     <div className="h-screen w-full bg-linear-to-b from-[#020617] via-[#25062c] to-[#020230] text-white flex flex-col">
-      
       {/* ---------------- TOP NAVBAR ---------------- */}
       <div className="w-full p-4 flex items-center justify-between bg-black/20 backdrop-blur-md border-b border-gray-700">
-
         <div className="flex items-center gap-3">
           {/* // Toggle Left Panel Button  */}
 
@@ -117,16 +115,12 @@ function ChatPageMain() {
             <h2 className="font-semibold text-lg">Sahid Ghosh</h2>
             <p className="text-green-400 text-sm">● Online</p>
           </div>
-
         </div>
-
       </div>
 
       {/* ---------------- CHAT AREA ---------------- */}
       <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-4 scrollbar-hide">
-
-        {
-           messages.map((msg) => (
+        {messages.map((msg) => (
           <div
             key={msg.id}
             className={`flex items-start gap-3 ${
@@ -148,7 +142,6 @@ function ChatPageMain() {
                   : "bg-gray-800 text-gray-200 rounded-bl-none"
               }`}
             >
-
               {msg.image && (
                 <img
                   src={msg.image}
@@ -160,9 +153,8 @@ function ChatPageMain() {
               {msg.text && <p>{msg.text}</p>}
 
               <p className="text-xs text-gray-300 text-right mt-1 flex justify-end items-center gap-2">
-                {msg.time}  <CheckCheck className="w-5 h-5"/>
+                {msg.time} <CheckCheck className="w-5 h-5" />
               </p>
-
             </div>
 
             {msg.sender === "me" && (
@@ -190,7 +182,7 @@ function ChatPageMain() {
         }}
       />
 
-      {/* // When User is Sending Images or Images+message this dialougue box will be shown  */}
+      {/* // When User is Sending Images or Images+message this dialogue box will be shown  */}
       {frontendImageUrl && (
         <div className="w-60 h-60 bg-violet-700 z-50 ml-2 mb-2 rounded-md p-3 relative">
           <XIcon

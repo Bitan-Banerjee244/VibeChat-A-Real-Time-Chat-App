@@ -139,8 +139,8 @@ function PersonBar({
       </div>
 
       {/* Loops / Status - Horizontal Scroll */}
-      <div className="px-3 py-2 mb-3">
-        <h2 className="text-white font-semibold mb-2 ml-2">Loops</h2>
+      <div className="px-3 mb-3">
+        <h2 className="text-white font-semibold mb-3 ml-2">Loops</h2>
         <div className="flex gap-4 overflow-x-auto scrollbar-hide whitespace-nowrap">
 
           {/* // Own Profile to add loop  */}
@@ -196,7 +196,7 @@ function PersonBar({
           {persons.map((person) => (
             <div
               key={person.id}
-              className="flex items-center justify-between p-3 rounded-lg hover:bg-[#531653] cursor-pointer transition-colors duration-200"
+              className="flex items-center justify-between p-3 rounded-lg hover:bg-[#392239] cursor-pointer transition-colors duration-200"
             >
               <div className="flex items-center gap-3">
                 <img

@@ -43,7 +43,7 @@ const CreateProfile: React.FC = () => {
               className="w-40 h-40 rounded-full object-cover border-4 border-violet-500"
             />
           ) : (
-            <div className="flex flex-col items-center justify-center text-gray-400">
+            <div className="flex flex-col items-center justify-center text-gray-400 border-1 border-solid border-white p-6 py-8 rounded-[50%]">
               <Image className="w-12 h-12 mb-2" />
               <span>Upload Photo</span>
             </div>

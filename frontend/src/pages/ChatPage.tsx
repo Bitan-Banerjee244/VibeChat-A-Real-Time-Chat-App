@@ -51,7 +51,7 @@ function ChatPage() {
       </div>
 
       {/* Middle Chat Area */}
-      <div className={`flex-1 bg-blue-600 transition-all duration-300 relative z-10`}>
+      <div className={`flex-1 bg-blue-600 transition-all duration-300 relative z-10 `}>
         <ChatPageMain />
       </div>
 

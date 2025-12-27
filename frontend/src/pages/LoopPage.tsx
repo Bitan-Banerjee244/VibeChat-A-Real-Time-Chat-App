@@ -1,11 +1,13 @@
 import { useState, useEffect, useContext } from "react";
 import { Heart, Eye, X, ChevronLeft } from "lucide-react";
 import { UserContext } from "@/context/UserContext";
+import { FaHeart } from "react-icons/fa";
 
 function LoopPage() {
   const [showViewers, setShowViewers] = useState(false);
   const [currentStory, setCurrentStory] = useState(0);
   let { showStory, setShowStory } = useContext(UserContext);
+  let [like, setLike] = useState<boolean>(true);
 
   const storyOwner = {
     name: "Riya Sharma",
@@ -51,9 +53,9 @@ function LoopPage() {
   return (
     <>
       <div
-        className={`absolute top-8 md:top-5 left-10 md:left-[40%] w-[300px] md:w-[450px]  h-[550px] md:h-[600px]
+        className={`absolute  md:top-[50px]  md:left-[40%] w-screen md:w-[450px] h-screen md:h-[600px]
           bg-linear-to-br from-blue-900 via-violet-900 to-black
-          z-999 rounded-xl overflow-hidden shadow-2xl border border-white/10 p-4 ${
+          z-999 md:rounded-xl overflow-hidden shadow-2xl border border-white/10 p-4 ${
             showStory ? "" : "hidden"
           }`}
       >
@@ -89,7 +91,7 @@ function LoopPage() {
         </div>
 
         {/* Story Main Section */}
-        <div className="w-full h-[70%] rounded-lg overflow-hidden relative">
+        <div className="w-full h-[75%]  mt-5 md:h-[75%] rounded-lg overflow-hidden relative">
           <img
             src={stories[currentStory].img}
             className="w-full h-full object-cover"
@@ -98,15 +100,7 @@ function LoopPage() {
         </div>
 
         {/* LIKE + VIEW BUTTONS  */}
-        <div className="w-full h-[15%] mt-3 flex items-center justify-between px-5">
-          {/* Like */}
-          <button className="flex items-center gap-2 text-white cursor-pointer">
-            <span className="p-2 bg-white/10 rounded-full">
-              <Heart size={22} className="text-red-400" />
-            </span>
-            <span>Like</span>
-          </button>
-
+        <div className="w-full h-[10%] md:mt-3 flex items-center justify-between px-5">
           {/* Views */}
           <button
             onClick={() => setShowViewers(true)}
@@ -116,6 +110,19 @@ function LoopPage() {
               <Eye size={22} />
             </span>
             <span>{viewers.length} Views</span>
+          </button>
+
+          {/* Like */}
+          <button className="flex items-center gap-2 text-white cursor-pointer">
+            <span className="p-2 bg-[#0d010d] rounded-full">
+              <FaHeart
+                className={` text-2xl ${
+                  like ? "text-white" : "text-pink-700"
+                }`}
+                onClick={() => setLike((prev) => !prev)}
+              />
+            </span>
+            <span>Like</span>
           </button>
         </div>
 
@@ -127,18 +134,15 @@ function LoopPage() {
           ${showViewers ? "translate-y-0" : "translate-y-[150%]"}
           h-60`}
         >
-
-
           <div className="flex justify-between items-center mb-3">
             <h2 className="text-white text-lg font-semibold">Viewers</h2>
             <button onClick={() => setShowViewers(false)}>
               <X size={22} className="text-white" />
             </button>
           </div>
-          
+
           {/* Persons Who viewed the stories */}
           <div className="max-h-[180px] overflow-y-auto space-y-3 pr-1 scrollbar-hide">
-
             {viewers.map((viewer, idx) => (
               <div
                 key={idx}
@@ -149,12 +153,13 @@ function LoopPage() {
                   alt={viewer.name}
                   className="w-10 h-10 rounded-full object-cover"
                 />
-                <span className="text-white text-sm">{viewer.name}</span>
+                <div className="flex justify-between px-5 w-full">
+                  <span className="text-white text-sm">{viewer.name}</span>
+                  <FaHeart className="text-green-500" />
+                </div>
               </div>
             ))}
-
           </div>
-
         </div>
       </div>
     </>

@@ -38,7 +38,7 @@ const ProfileBar: React.FC<ProfileBarProps> = ({ onClose }) => {
           <img
             src="https://randomuser.me/api/portraits/women/68.jpg"
             alt="profile"
-            className="w-32 h-32 rounded-full border-4 border-blue-600 shadow-lg"
+            className="w-32 h-32 rounded-full border-4 border-purple-600 shadow-lg"
           />
         </div>
 
@@ -46,6 +46,7 @@ const ProfileBar: React.FC<ProfileBarProps> = ({ onClose }) => {
         <div className="mt-4 text-center z-10">
           <h2 className="text-2xl font-bold">Sahid Ghosh</h2>
           <p className="text-green-400 text-sm mt-1">● Online</p>
+          <p className="text-purple-400 text-sm mt-1">@itsSahid</p>
           <p className="text-gray-300 text-sm mt-2">
             Passionate about coding, gaming, and building awesome apps!
           </p>
