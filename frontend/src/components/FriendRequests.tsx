@@ -1,4 +1,5 @@
 import { Check, X } from "lucide-react";
+import { useEffect, useRef, type SetStateAction } from "react";
 
 // Dummy Friend Request Data
 const requests = [
@@ -23,13 +24,42 @@ const requests = [
 ];
 
 interface FriendRequests {
-    showFriendRequest : boolean
+  showFriendRequest: boolean;
+  setShowFriendRequest: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function FriendRequests({ showFriendRequest }:FriendRequests) {
+function FriendRequests({
+  showFriendRequest,
+  setShowFriendRequest,
+}: FriendRequests) {
+
+  
+  const friendReqRef = useRef<HTMLDivElement | null>(null);
+
+  // Remove the Bar on click of outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        friendReqRef.current &&
+        !friendReqRef.current.contains(e.target as Node)
+      ) {
+        setShowFriendRequest(false);
+      }
+    };
+
+    if (showFriendRequest) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showFriendRequest, setShowFriendRequest]);
+
   return (
     <>
       <div
+        ref={friendReqRef}
         className={`
         w-[300px] md:w-[400px]
         p-4

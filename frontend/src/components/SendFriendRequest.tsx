@@ -1,5 +1,7 @@
 import { SearchIcon, UserPlus } from "lucide-react";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
+import type React from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Dummy Send Friend Request Data
 const dummyUsers = [
@@ -32,12 +34,40 @@ const dummyUsers = [
 
 interface SendFriendRequest {
   sendFriendRequest: boolean;
+  setSendFriendRequest: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function SendFriendRequest({ sendFriendRequest }: SendFriendRequest) {
+function SendFriendRequest({
+  sendFriendRequest,
+  setSendFriendRequest,
+}: SendFriendRequest) {
+
+  const sendFriendReq = useRef<HTMLDivElement | null>(null);
+
+  // Remove the Bar on click of outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        sendFriendReq.current &&
+        !sendFriendReq.current.contains(e.target as Node)
+      ) {
+        setSendFriendRequest(false);
+      }
+    };
+
+    if (sendFriendRequest) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [sendFriendRequest, setSendFriendRequest]);
+
   return (
     <>
       <div
+        ref={sendFriendReq}
         className={`w-[300px] md:w-[400px] p-4 h-[450px]  rounded-xl bg-linear-to-br from-blue-900 via-black to-violet-900 border border-white shadow-lg text-white absolute z-50 top-22 md:top-17 left-10 md:left-15 ${
           sendFriendRequest ? "block" : "hidden"
         }`}

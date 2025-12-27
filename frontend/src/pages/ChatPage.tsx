@@ -8,24 +8,28 @@ import FriendRequests from "@/components/FriendRequests";
 import SendFriendRequest from "@/components/SendFriendRequest";
 import LoopPage from "./LoopPage";
 
-
 function ChatPage() {
   const { showPerson, showProfile, setShowProfile } = useContext(UserContext);
   let [showFriendRequest, setShowFriendRequest] = useState<boolean>(false);
   let [sendFriendRequest, setSendFriendRequest] = useState<boolean>(false);
-  
 
   return (
     <div
       className="h-screen w-screen flex  relative overflow-hidden "
       id="personbar"
     >
-      <LoopPage/>
+      <LoopPage />
       {/* Show Friend Request Bar */}
-      <FriendRequests showFriendRequest={showFriendRequest} />
+      <FriendRequests
+        showFriendRequest={showFriendRequest}
+        setShowFriendRequest={setShowFriendRequest}
+      />
 
       {/* Showing All Person by userid Bar */}
-      <SendFriendRequest sendFriendRequest={sendFriendRequest}/>
+      <SendFriendRequest
+        sendFriendRequest={sendFriendRequest}
+        setSendFriendRequest={setSendFriendRequest}
+      />
 
       {/* Far-left thin panel */}
       <div className="hidden md:flex md:w-[4%] z-20">
@@ -51,7 +55,9 @@ function ChatPage() {
       </div>
 
       {/* Middle Chat Area */}
-      <div className={`flex-1 bg-blue-600 transition-all duration-300 relative z-10 `}>
+      <div
+        className={`flex-1 bg-blue-600 transition-all duration-300 relative z-10 `}
+      >
         <ChatPageMain />
       </div>
 
@@ -63,7 +69,6 @@ function ChatPage() {
       >
         <ProfileBar onClose={() => setShowProfile(false)} />
       </div>
-
     </div>
   );
 }
