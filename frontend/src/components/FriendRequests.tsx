@@ -1,5 +1,5 @@
 import { Check, X } from "lucide-react";
-import { useEffect, useRef, type SetStateAction } from "react";
+import { useEffect, useRef } from "react";
 
 // Dummy Friend Request Data
 const requests = [

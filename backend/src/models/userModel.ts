@@ -12,9 +12,9 @@ export interface IUser {
   resetPasswordToken?: string | null;
   resetPasswordExpires?: Date | null;
   passwordChangedAt?: Date;
-  loops: mongoose.Types.ObjectId[];
-  chats: mongoose.Types.ObjectId[];
-  friends: mongoose.Types.ObjectId[]; 
+  loops?: mongoose.Types.ObjectId[];
+  chats?: mongoose.Types.ObjectId[];
+  friends?: mongoose.Types.ObjectId[];
 }
 
 const userSchema = new mongoose.Schema<IUser>(
@@ -38,16 +38,20 @@ const userSchema = new mongoose.Schema<IUser>(
     },
     password: { type: String },
     image: { type: String, default: "" },
-    bio: { type: String, maxlength: 250 },
+    bio: { type: String, maxlength: 250, default: "" },
     resetPasswordToken: { type: String, default: null },
     resetPasswordExpires: { type: Date, default: null },
     passwordChangedAt: { type: Date },
-    loops: [{ type: mongoose.Schema.Types.ObjectId, ref: "Loop" }],
-    chats: [{ type: mongoose.Schema.Types.ObjectId, ref: "Chat" }],
-    friends: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }], 
+    loops: [{ type: mongoose.Schema.Types.ObjectId, ref: "Loop", default: [] }],
+    chats: [{ type: mongoose.Schema.Types.ObjectId, ref: "Chat", default: [] }],
+    friends: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "User", default: [] },
+    ],
   },
   { timestamps: true }
 );
 
-const User = (mongoose.models?.User as Model<IUser>) || mongoose.model<IUser>("User", userSchema);
+const User =
+  (mongoose.models?.User as Model<IUser>) ||
+  mongoose.model<IUser>("User", userSchema);
 export default User;
